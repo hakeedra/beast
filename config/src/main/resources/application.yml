@@ -1,7 +1,20 @@
 spring:
   application:
     name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/earthme/config
+          username: 3020703976@qq.com
+          password: Vkm*s4fTr0hR
+          basedir: /home/future/myproject/beast/config/basedir
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
