@@ -1,5 +1,6 @@
 package com.wdlily.beast.api.test;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,7 @@ public class TestController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @HystrixCommand(fallbackMethod = "clientFallBack")
     @GetMapping("/client/login")
     public String clientLogin(){
 
@@ -42,6 +44,11 @@ public class TestController {
 
 
         return result;
+    }
+
+    public String clientFallBack(){
+
+        return "fall back method";
     }
 
 

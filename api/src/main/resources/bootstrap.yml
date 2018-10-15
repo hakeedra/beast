@@ -7,6 +7,11 @@ spring:
         enabled: true
         service-id: CONFIG
       profile: dev
+    stream:
+      bindings:
+        testStreamMsg:
+          group: testt
+          contentType: application/json
 eureka:
   client:
     service-url:

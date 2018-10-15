@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: geteway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+#    简洁配置
+#    api: /myapi/**
+#    复杂配置 可配置敏感头
+    apitest:
+      path: /myapi/**
+      serviceId: api
+      sensitiveHeaders:
+  ignored-patterns:
+#    set 使用 -
+    - /api/mq/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: routes

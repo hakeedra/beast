@@ -21,6 +21,7 @@
         <module>api</module>
         <module>config</module>
         <module>product</module>
+        <module>geteway</module>
     </modules>
 
     <properties>
